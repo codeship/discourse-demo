@@ -1,11 +1,11 @@
 - type: parallel
-  encrypted_dockercfg_path: dockercfg.encrypted
+  service: app
   steps:
-  - service: app
+  - name: Specs
     command: ./script/ci/ci.parallel spec
-  - service: app
+  - name: Plugins
     command: ./script/ci/ci.parallel plugin
-  - service: app
+  - name: QUnit
     command: ./script/ci/ci.parallel qunit
-  - service: app
+  - name: PhantomJS
     command: phantomjs --help
