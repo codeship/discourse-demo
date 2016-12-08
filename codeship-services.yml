@@ -1,19 +1,18 @@
 app:
   build:
-    image: flomotlik/discourse
     dockerfile_path: Dockerfile
   environment:
-    SECRET_TOKEN: abcdefghij
-    REDIS_ADDRESS: redis://redis:6379
-    RAILS_ENV: test
     DATABASE_HOST: postgresql
+    PGHOST: postgresql
+    PGUSER: postgres
+    RAILS_ENV: test
+    REDIS_ADDRESS: redis://redis:6379
+    SECRET_TOKEN: abcdefghij
   links:
     - postgresql
     - redis
   cached: true
-  volumes:
-    - ./:/code
 postgresql:
-  image: postgres:9.3.6
+  image: postgres:9.5
 redis:
-  image: redis:3.0.2
+  image: redis:3.2-alpine

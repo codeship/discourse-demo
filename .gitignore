@@ -108,3 +108,7 @@ bundler_stubs/*
 
 vendor/bundle/*
 *.db
+
+# Codeship Docker Plattform
+codeship.aes
+dockercfg
